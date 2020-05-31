@@ -7,7 +7,7 @@
 #include <cmath>
 using namespace std;
 
-const double PI = 3.14159265358979;
+const double PI = 3.14;
 
 using func = function<double(double)>;                     // Function object
 
@@ -26,7 +26,7 @@ class FourierSeries
 public:
    FourierSeries( double (*f)( double ), double T, int N ) : period( T ), nmax( N )
    {
-      omega = 2.0 * PI / period;          
+      omega = 2.0 * PI / period;
       a = vector<double>( 1 + nmax, 0 );   b = a;
       int Ndt = max( 10 * N, 100 );                        // Number of intervals for numerical integration
       double factor = 2.0 / period;                        // Normalising factor for basis functions
@@ -75,7 +75,7 @@ double integral( func f, double a, double b, int n )                 // Numerica
 
 
 double squareWave( double t )
-{  
+{
    t = t - floor( t );
    return t < 0.5 ? 1 : 0;
 }
